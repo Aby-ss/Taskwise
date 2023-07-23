@@ -1,7 +1,7 @@
 from textual.app import App, ComposeResult
 from textual.containers import HorizontalScroll, VerticalScroll
 from textual.screen import Screen
-from textual.widgets import Placeholder
+from textual.widgets import Placeholder, Static
 
 
 class Header(Placeholder):
@@ -11,8 +11,7 @@ class Header(Placeholder):
         dock: top;
     }
     """
-
-
+    
 class Footer(Placeholder):
     DEFAULT_CSS = """
     Footer {
@@ -21,47 +20,17 @@ class Footer(Placeholder):
     }
     """
 
+class HorizontalLayoutExample(App):
+    CSS_PATH = "horizontal_layout.css"
 
-class Section(Placeholder):
-    DEFAULT_CSS = """
-    Section {
-        height: 5;
-        width: 1fr;
-        border: tall $background;
-    }
-    """
-
-
-class Column(VerticalScroll):
-    DEFAULT_CSS = """
-    Column {
-        height: 1fr;
-        width: 32;
-        margin: 0 2;
-    }
-    """
-
-    def compose(self) -> ComposeResult:
-        for Section_no in range(1, 20):
-            yield Section(id=f"Section{Section_no}")
-
-
-class SectionScreen(Screen):
     def compose(self) -> ComposeResult:
         yield Header(id="Header")
         yield Footer(id="Footer")
-        with HorizontalScroll():
-            yield Column()
-            yield Column()
-            yield Column()
-            yield Column()
-
-
-class LayoutApp(App):
-    def on_ready(self) -> None:
-        self.push_screen(SectionScreen())
+        yield Static("One", classes="box")
+        yield Static("Two", classes="box")
+        yield Static("Three", classes="box")
 
 
 if __name__ == "__main__":
-    app = LayoutApp()
+    app = HorizontalLayoutExample()
     app.run()
