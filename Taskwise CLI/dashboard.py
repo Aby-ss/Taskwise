@@ -1,4 +1,5 @@
 from textual.app import App, ComposeResult
+from textual.containers import HorizontalScroll, VerticalScroll
 from textual.screen import Screen
 from textual.widgets import Placeholder
 
@@ -21,26 +22,44 @@ class Footer(Placeholder):
     """
 
 
-class BodyContainer(Placeholder):
+class Section(Placeholder):
     DEFAULT_CSS = """
-    BodyContainer {
+    Section {
+        height: 5;
         width: 1fr;
-        height: 1fr;
-        border: solid white;
+        border: tall $background;
     }
-    """  
+    """
 
 
-class TweetScreen(Screen):
+class Column(VerticalScroll):
+    DEFAULT_CSS = """
+    Column {
+        height: 1fr;
+        width: 32;
+        margin: 0 2;
+    }
+    """
+
+    def compose(self) -> ComposeResult:
+        for Section_no in range(1, 20):
+            yield Section(id=f"Section{Section_no}")
+
+
+class SectionScreen(Screen):
     def compose(self) -> ComposeResult:
         yield Header(id="Header")
         yield Footer(id="Footer")
-        yield BodyContainer(id="Body")
+        with HorizontalScroll():
+            yield Column()
+            yield Column()
+            yield Column()
+            yield Column()
 
 
 class LayoutApp(App):
     def on_ready(self) -> None:
-        self.push_screen(TweetScreen())
+        self.push_screen(SectionScreen())
 
 
 if __name__ == "__main__":
