@@ -1,5 +1,6 @@
 from textual.app import App, ComposeResult
 from textual.containers import HorizontalScroll, VerticalScroll
+from textual.containers import Horizontal, Vertical
 from textual.screen import Screen
 from textual.widgets import Placeholder, Static
 
@@ -20,17 +21,27 @@ class Footer(Placeholder):
     }
     """
 
-class HorizontalLayoutExample(App):
-    CSS_PATH = "horizontal_layout.css"
+
+class UtilityContainersExample(App):
+    CSS_PATH = "layout.css"
 
     def compose(self) -> ComposeResult:
         yield Header(id="Taskwise")
         yield Footer(id="Automate Everything Efficiently")
-        yield Static("One", classes="box")
-        yield Static("Two", classes="box")
-        yield Static("Three", classes="box")
+        yield Horizontal(
+            Vertical(
+                Static("One"),
+                Static("Two"),
+                classes="column",
+            ),
+            Vertical(
+                Static("Three"),
+                Static("Four"),
+                classes="column",
+            ),
+        )
 
 
 if __name__ == "__main__":
-    app = HorizontalLayoutExample()
+    app = UtilityContainersExample()
     app.run()

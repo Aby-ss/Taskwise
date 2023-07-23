@@ -1,0 +1,10 @@
+Static {
+    content-align: center middle;
+    background: rgba(130, 130, 130, 0);
+    border: solid rgb(97, 20, 148);
+    height: 1fr;
+}
+
+.column {
+    width: 1fr;
+}
