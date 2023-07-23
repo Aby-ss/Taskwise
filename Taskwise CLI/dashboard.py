@@ -1,22 +1,37 @@
 from textual.app import App, ComposeResult
-from textual.widgets import Header, Footer
+from textual.screen import Screen
+from textual.widgets import Placeholder
 
 
-class Taskwise(App):
-    """A Textual app to manage Tasks."""
+class Header(Placeholder):
+    DEFAULT_CSS = """
+    Header {
+        height: 3;
+        dock: top;
+    }
+    """
 
-    BINDINGS = [("d", "toggle_dark", "Toggle dark mode")]
 
+class Footer(Placeholder):
+    DEFAULT_CSS = """
+    Footer {
+        height: 3;
+        dock: bottom;
+    }
+    """
+
+
+class TweetScreen(Screen):
     def compose(self) -> ComposeResult:
-        """Create child widgets for the app."""
-        yield Header()
-        yield Footer()
+        yield Header(id="Header")
+        yield Footer(id="Footer")
 
-    def action_toggle_dark(self) -> None:
-        """An action to toggle dark mode."""
-        self.dark = not self.dark
+
+class LayoutApp(App):
+    def on_ready(self) -> None:
+        self.push_screen(TweetScreen())
 
 
 if __name__ == "__main__":
-    app = Taskwise()
+    app = LayoutApp()
     app.run()
