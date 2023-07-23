@@ -22,14 +22,14 @@ class Footer(Placeholder):
     """
 
 
-class UtilityContainersExample(App):
+class Taskwise(App):
     CSS_PATH = "layout.css"
 
     def compose(self) -> ComposeResult:
         
         column_text = "Hey there!!"
         
-        yield Header("Taskwise")
+        yield Header("Taskwise", show_clock=True)
         yield Footer("Automate Everything Efficiently")
         yield Horizontal(
             Vertical(
@@ -46,5 +46,5 @@ class UtilityContainersExample(App):
 
 
 if __name__ == "__main__":
-    app = UtilityContainersExample()
+    app = Taskwise()
     app.run()
