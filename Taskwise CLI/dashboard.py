@@ -2,8 +2,8 @@ from textual.app import App, ComposeResult
 from textual.widgets import Header, Footer
 
 
-class StopwatchApp(App):
-    """A Textual app to manage stopwatches."""
+class Taskwise(App):
+    """A Textual app to manage Tasks."""
 
     BINDINGS = [("d", "toggle_dark", "Toggle dark mode")]
 
@@ -18,5 +18,5 @@ class StopwatchApp(App):
 
 
 if __name__ == "__main__":
-    app = StopwatchApp()
+    app = Taskwise()
     app.run()
