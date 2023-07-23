@@ -24,8 +24,8 @@ class HorizontalLayoutExample(App):
     CSS_PATH = "horizontal_layout.css"
 
     def compose(self) -> ComposeResult:
-        yield Header(id="Header")
-        yield Footer(id="Footer")
+        yield Header(id="Taskwise")
+        yield Footer(id="Automate Everything Efficiently")
         yield Static("One", classes="box")
         yield Static("Two", classes="box")
         yield Static("Three", classes="box")
