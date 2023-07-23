@@ -29,8 +29,8 @@ class UtilityContainersExample(App):
         
         column_text = "Hey there!!"
         
-        yield Header(id="Taskwise")
-        yield Footer(id="Automate Everything Efficiently")
+        yield Header("Taskwise")
+        yield Footer("Automate Everything Efficiently")
         yield Horizontal(
             Vertical(
                 Static(f"{column_text}"),
