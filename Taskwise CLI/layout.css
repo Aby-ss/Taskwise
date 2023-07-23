@@ -1,10 +1,18 @@
 Static {
     content-align: center middle;
-    background: rgba(130, 130, 130, 0);
-    border: solid rgb(97, 20, 148);
+    background: #1b212a;
+    border: solid rgb(119, 217, 7);
     height: 1fr;
 }
 
 .column {
     width: 1fr;
 }
+
+.Header {
+    dock: top;
+    height: 3;
+    content-align: center middle;
+    background: rgb(152, 152, 152);
+    color: white;
+  }

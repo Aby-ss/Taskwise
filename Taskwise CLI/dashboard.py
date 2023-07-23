@@ -3,6 +3,7 @@ from textual.containers import HorizontalScroll, VerticalScroll
 from textual.containers import Horizontal, Vertical
 from textual.screen import Screen
 from textual.widgets import Placeholder, Static
+from textual.widgets import Header, Footer
 
 import requests
 from rich.panel import Panel
@@ -56,7 +57,7 @@ class Taskwise(App):
             
         column_text = f"{air_quality}"
         
-        yield Header("Taskwise")
+        yield Header("Taskwise", classes="Header",)
         yield Footer("Automate Everything Efficiently")
         yield Horizontal(
             Vertical(
@@ -70,6 +71,9 @@ class Taskwise(App):
                 classes="column",
             ),
         )
+    
+        def on_mount(self) -> None:
+            self.Header.styles.background = "#9932CC"
 
 
 if __name__ == "__main__":
