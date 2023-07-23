@@ -21,10 +21,21 @@ class Footer(Placeholder):
     """
 
 
+class BodyContainer(Placeholder):
+    DEFAULT_CSS = """
+    BodyContainer {
+        width: 1fr;
+        height: 1fr;
+        border: solid white;
+    }
+    """  
+
+
 class TweetScreen(Screen):
     def compose(self) -> ComposeResult:
         yield Header(id="Header")
         yield Footer(id="Footer")
+        yield BodyContainer(id="Body")
 
 
 class LayoutApp(App):
