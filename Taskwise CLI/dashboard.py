@@ -26,17 +26,20 @@ class UtilityContainersExample(App):
     CSS_PATH = "layout.css"
 
     def compose(self) -> ComposeResult:
+        
+        column_text = "Hey there!!"
+        
         yield Header(id="Taskwise")
         yield Footer(id="Automate Everything Efficiently")
         yield Horizontal(
             Vertical(
-                Static("One"),
-                Static("Two"),
+                Static(f"{column_text}"),
+                Static(f"{column_text}"),
                 classes="column",
             ),
             Vertical(
-                Static("Three"),
-                Static("Four"),
+                Static(f"{column_text}"),
+                Static(f"{column_text}"),
                 classes="column",
             ),
         )
