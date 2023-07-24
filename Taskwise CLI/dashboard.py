@@ -67,7 +67,6 @@ class Taskwise(App):
             ),
             Vertical(
                 Static(f"{column_text}"),
-                Static(f"{column_text}"),
                 classes="column",
             ),
         )
