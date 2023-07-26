@@ -10,6 +10,7 @@ from rich.panel import Panel
 from rich import box
 
 
+
 class Header(Placeholder):
     DEFAULT_CSS = """
     Header {
